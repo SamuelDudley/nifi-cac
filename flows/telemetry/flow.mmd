@@ -1,0 +1,56 @@
+flowchart LR
+  classDef in fill:#CCE5FF,stroke:#495057,color:#212529
+  classDef prc fill:#E2E3E5,stroke:#495057,color:#212529
+  classDef sub fill:#E2D9F3,stroke:#495057,color:#212529
+  classDef out fill:#D4EDDA,stroke:#495057,color:#212529
+  classDef err fill:#F8D7DA,stroke:#495057,color:#212529
+  na326533c8dfa592e970b991a896d23bd["IN_GetSQS"]
+  n3367103cb80e5b538cd86e4c053fd3d9["PRC_ExtractContent"]
+  ndb61932e4eee5e7b97701d931c02a006["PRC_FetchS3Object"]
+  n81e830a3cc8d5c819daf21963dd6b9fc["PRC_InvokeLambda"]
+  n4951b6cf21f45d5eada188123cd7e9c6["PRC_ParseS3Event"]
+  nc00d07ade112510cb807f49f4459e56b(( ))
+  subgraph nfff353de70305052bc9fde94f8be1422["ERR_DeadLetter"]
+    direction LR
+    n030af8035b5f52fea9c322fdd90fa5ce["OUT_PutS3Object"]
+    neade8f94dddc5236b0fad2b17a849191[/"in"/]
+    ne766c121c4565634bb6a3ecaca3e70fa[/"failure"/]
+    n030af8035b5f52fea9c322fdd90fa5ce -- "failure" --> ne766c121c4565634bb6a3ecaca3e70fa
+    neade8f94dddc5236b0fad2b17a849191 --> n030af8035b5f52fea9c322fdd90fa5ce
+  end
+  subgraph nac6d33e9220e591f9ab4120de57033cd["ERR_Unwritable"]
+    direction LR
+    n06ab6a54a8f45ce097cc4bfa88c23e09["ERR_LogAttribute"]
+    n3ca9c8c60bc05c069fdfe1989a6b6b84[/"in"/]
+    n3ca9c8c60bc05c069fdfe1989a6b6b84 --> n06ab6a54a8f45ce097cc4bfa88c23e09
+  end
+  subgraph n23b4f59204975b59a1db4fb4590cddde["OUT_Results"]
+    direction LR
+    na496dd76951c5ab4a9bfbf505627b5b8["OUT_PutS3Object"]
+    na8ee35d6fc5751179ae5e6e3fcb10e79[/"in"/]
+    na03c52ab66a95c6dab87712ba549c966[/"failure"/]
+    na496dd76951c5ab4a9bfbf505627b5b8 -- "failure" --> na03c52ab66a95c6dab87712ba549c966
+    na8ee35d6fc5751179ae5e6e3fcb10e79 --> na496dd76951c5ab4a9bfbf505627b5b8
+  end
+  n3367103cb80e5b538cd86e4c053fd3d9 -- "matched" --> n81e830a3cc8d5c819daf21963dd6b9fc
+  n3367103cb80e5b538cd86e4c053fd3d9 -- "failure" --> nc00d07ade112510cb807f49f4459e56b
+  n3367103cb80e5b538cd86e4c053fd3d9 -- "unmatched" --> nc00d07ade112510cb807f49f4459e56b
+  n4951b6cf21f45d5eada188123cd7e9c6 -- "failure" --> nc00d07ade112510cb807f49f4459e56b
+  n4951b6cf21f45d5eada188123cd7e9c6 -- "unmatched" --> nc00d07ade112510cb807f49f4459e56b
+  n4951b6cf21f45d5eada188123cd7e9c6 -- "matched" --> ndb61932e4eee5e7b97701d931c02a006
+  n81e830a3cc8d5c819daf21963dd6b9fc -- "success" --> na8ee35d6fc5751179ae5e6e3fcb10e79
+  n81e830a3cc8d5c819daf21963dd6b9fc -- "failure" --> nc00d07ade112510cb807f49f4459e56b
+  na03c52ab66a95c6dab87712ba549c966 --> nc00d07ade112510cb807f49f4459e56b
+  na326533c8dfa592e970b991a896d23bd -- "success" --> n4951b6cf21f45d5eada188123cd7e9c6
+  nc00d07ade112510cb807f49f4459e56b --> neade8f94dddc5236b0fad2b17a849191
+  ndb61932e4eee5e7b97701d931c02a006 -- "success" --> n3367103cb80e5b538cd86e4c053fd3d9
+  ndb61932e4eee5e7b97701d931c02a006 -- "failure" --> nc00d07ade112510cb807f49f4459e56b
+  ne766c121c4565634bb6a3ecaca3e70fa --> n3ca9c8c60bc05c069fdfe1989a6b6b84
+  class na326533c8dfa592e970b991a896d23bd in
+  class n3367103cb80e5b538cd86e4c053fd3d9 prc
+  class ndb61932e4eee5e7b97701d931c02a006 prc
+  class n81e830a3cc8d5c819daf21963dd6b9fc prc
+  class n4951b6cf21f45d5eada188123cd7e9c6 prc
+  class n030af8035b5f52fea9c322fdd90fa5ce out
+  class n06ab6a54a8f45ce097cc4bfa88c23e09 err
+  class na496dd76951c5ab4a9bfbf505627b5b8 out

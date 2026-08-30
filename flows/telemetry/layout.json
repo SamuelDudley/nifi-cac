@@ -1,0 +1,128 @@
+{
+  "030af803-5b5f-52fe-a9c3-22fdd90fa5ce": {
+    "position": {
+      "x": 670.0,
+      "y": 100.0
+    },
+    "style": {
+      "background-color": "#D4EDDA"
+    }
+  },
+  "06ab6a54-a8f4-5ce0-97cc-4bfa88c23e09": {
+    "position": {
+      "x": 670.0,
+      "y": 100.0
+    },
+    "style": {
+      "background-color": "#F8D7DA"
+    }
+  },
+  "23b4f592-0497-5b59-a1db-4fb4590cddde": {
+    "position": {
+      "x": 120.0,
+      "y": 820.0
+    }
+  },
+  "3367103c-b80e-5b53-8cd8-6e4c053fd3d9": {
+    "position": {
+      "x": 1770.0,
+      "y": 100.0
+    },
+    "style": {
+      "background-color": "#E2E3E5"
+    }
+  },
+  "3ca9c8c6-0bc0-5c06-9fdf-e1989a6b6b84": {
+    "position": {
+      "x": 120.0,
+      "y": 100.0
+    }
+  },
+  "4951b6cf-21f4-5d5e-ada1-88123cd7e9c6": {
+    "position": {
+      "x": 670.0,
+      "y": 100.0
+    },
+    "style": {
+      "background-color": "#E2E3E5"
+    }
+  },
+  "81e830a3-cc8d-5c81-9daf-21963dd6b9fc": {
+    "position": {
+      "x": 2320.0,
+      "y": 100.0
+    },
+    "style": {
+      "background-color": "#E2E3E5"
+    }
+  },
+  "a03c52ab-66a9-5c6d-ab87-712ba549c966": {
+    "position": {
+      "x": 1220.0,
+      "y": 100.0
+    }
+  },
+  "a326533c-8dfa-592e-970b-991a896d23bd": {
+    "position": {
+      "x": 120.0,
+      "y": 580.0
+    },
+    "style": {
+      "background-color": "#CCE5FF"
+    }
+  },
+  "a496dd76-951c-5ab4-a9bf-bf505627b5b8": {
+    "position": {
+      "x": 670.0,
+      "y": 100.0
+    },
+    "style": {
+      "background-color": "#D4EDDA"
+    }
+  },
+  "a8ee35d6-fc57-5117-9ae5-e6e3fcb10e79": {
+    "position": {
+      "x": 120.0,
+      "y": 100.0
+    }
+  },
+  "ac6d33e9-220e-591f-9ab4-120de57033cd": {
+    "position": {
+      "x": 120.0,
+      "y": 340.0
+    }
+  },
+  "c00d07ad-e112-510c-b807-f49f4459e56b": {
+    "position": {
+      "x": 2870.0,
+      "y": 100.0
+    }
+  },
+  "db61932e-4eee-5e7b-9770-1d931c02a006": {
+    "position": {
+      "x": 1220.0,
+      "y": 100.0
+    },
+    "style": {
+      "background-color": "#E2E3E5"
+    }
+  },
+  "e766c121-c456-5634-bb6a-3ecaca3e70fa": {
+    "position": {
+      "x": 1220.0,
+      "y": 100.0
+    }
+  },
+  "eade8f94-dddc-5236-b0fa-d2b17a849191": {
+    "position": {
+      "x": 120.0,
+      "y": 100.0
+    }
+  },
+  "fff353de-7030-5052-bc9f-de94f8be1422": {
+    "position": {
+      "x": 120.0,
+      "y": 100.0
+    }
+  }
+}

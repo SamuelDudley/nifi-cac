@@ -1,0 +1,924 @@
+{
+  "flowContents": {
+    "componentType": "PROCESS_GROUP",
+    "connections": [
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "08a5a4be-ece6-57fb-af6d-3cf3a4af729b",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "failure"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "3367103c-b80e-5b53-8cd8-6e4c053fd3d9",
+          "name": "PRC_ExtractContent",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+          "id": "a8ee35d6-fc57-5117-9ae5-e6e3fcb10e79",
+          "name": "in",
+          "type": "INPUT_PORT"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "0ff990d9-3841-5eb2-956d-ef6001450749",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "success"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "81e830a3-cc8d-5c81-9daf-21963dd6b9fc",
+          "name": "PRC_InvokeLambda",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "25a74ede-6a9c-5541-9a54-de2728f351c0",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "failure"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "db61932e-4eee-5e7b-9770-1d931c02a006",
+          "name": "PRC_FetchS3Object",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "4951b6cf-21f4-5d5e-ada1-88123cd7e9c6",
+          "name": "PRC_ParseS3Event",
+          "type": "PROCESSOR"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "49a4cc65-daf7-53af-9e18-cebce531b61b",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "success"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "a326533c-8dfa-592e-970b-991a896d23bd",
+          "name": "IN_GetSQS",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "7551b21d-331d-50ae-948a-77f6cd3e7f99",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "failure"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "81e830a3-cc8d-5c81-9daf-21963dd6b9fc",
+          "name": "PRC_InvokeLambda",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "81e830a3-cc8d-5c81-9daf-21963dd6b9fc",
+          "name": "PRC_InvokeLambda",
+          "type": "PROCESSOR"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "7b2b1ce6-a1e4-5d87-b7c2-fddb0c4339f3",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "matched"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "3367103c-b80e-5b53-8cd8-6e4c053fd3d9",
+          "name": "PRC_ExtractContent",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "fff353de-7030-5052-bc9f-de94f8be1422",
+          "id": "eade8f94-dddc-5236-b0fa-d2b17a849191",
+          "name": "in",
+          "type": "INPUT_PORT"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "94514ea4-645c-5c4f-8b19-edd77728277f",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          ""
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "9c0e5032-3d9e-547b-84b6-00375088e463",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "unmatched"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "3367103c-b80e-5b53-8cd8-6e4c053fd3d9",
+          "name": "PRC_ExtractContent",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "3367103c-b80e-5b53-8cd8-6e4c053fd3d9",
+          "name": "PRC_ExtractContent",
+          "type": "PROCESSOR"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "aade29db-8555-53ea-b326-5909f20864dd",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "success"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "db61932e-4eee-5e7b-9770-1d931c02a006",
+          "name": "PRC_FetchS3Object",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "ac6d33e9-220e-591f-9ab4-120de57033cd",
+          "id": "3ca9c8c6-0bc0-5c06-9fdf-e1989a6b6b84",
+          "name": "in",
+          "type": "INPUT_PORT"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "d1077152-a73e-5657-9dd1-f2b6a5ab6eb7",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          ""
+        ],
+        "source": {
+          "groupId": "fff353de-7030-5052-bc9f-de94f8be1422",
+          "id": "e766c121-c456-5634-bb6a-3ecaca3e70fa",
+          "name": "failure",
+          "type": "OUTPUT_PORT"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "ed03f30b-d058-5bc3-9c11-28f26f57fbb5",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "failure"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "4951b6cf-21f4-5d5e-ada1-88123cd7e9c6",
+          "name": "PRC_ParseS3Event",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "f1c50229-ce8c-52ae-868c-6e8aad35f49a",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          ""
+        ],
+        "source": {
+          "groupId": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+          "id": "a03c52ab-66a9-5c6d-ab87-712ba549c966",
+          "name": "failure",
+          "type": "OUTPUT_PORT"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "db61932e-4eee-5e7b-9770-1d931c02a006",
+          "name": "PRC_FetchS3Object",
+          "type": "PROCESSOR"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "f2ca44a6-f04a-5811-8113-f4d35d665fc0",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "matched"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "4951b6cf-21f4-5d5e-ada1-88123cd7e9c6",
+          "name": "PRC_ParseS3Event",
+          "type": "PROCESSOR"
+        }
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "componentType": "CONNECTION",
+        "destination": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "c00d07ad-e112-510c-b807-f49f4459e56b",
+          "name": "ERR_Fanin",
+          "type": "FUNNEL"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "f51dac32-9276-5354-989b-591b66c2fb0c",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "",
+        "selectedRelationships": [
+          "unmatched"
+        ],
+        "source": {
+          "groupId": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+          "id": "4951b6cf-21f4-5d5e-ada1-88123cd7e9c6",
+          "name": "PRC_ParseS3Event",
+          "type": "PROCESSOR"
+        }
+      }
+    ],
+    "controllerServices": [
+      {
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "nifi-aws-nar",
+          "group": "org.apache.nifi",
+          "version": "2.0.0"
+        },
+        "componentType": "CONTROLLER_SERVICE",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "97fbc41a-6190-5d8e-8bfc-abcad12e00cf",
+        "name": "CS_AwsCredentials",
+        "properties": {
+          "Access Key ID": "#{aws.access.key.id}",
+          "Secret Access Key": "#{aws.secret.access.key}"
+        },
+        "scheduledState": "ENABLED",
+        "type": "org.apache.nifi.processors.aws.credentials.provider.service.AWSCredentialsProviderControllerService"
+      }
+    ],
+    "funnels": [
+      {
+        "componentType": "FUNNEL",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "c00d07ad-e112-510c-b807-f49f4459e56b",
+        "name": "ERR_Fanin"
+      }
+    ],
+    "identifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+    "name": "Telemetry Enrichment",
+    "processGroups": [
+      {
+        "componentType": "PROCESS_GROUP",
+        "connections": [
+          {
+            "backPressureDataSizeThreshold": "1 GB",
+            "backPressureObjectThreshold": 10000,
+            "componentType": "CONNECTION",
+            "destination": {
+              "groupId": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+              "id": "a496dd76-951c-5ab4-a9bf-bf505627b5b8",
+              "name": "OUT_PutS3Object",
+              "type": "PROCESSOR"
+            },
+            "flowFileExpiration": "0 sec",
+            "groupIdentifier": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+            "identifier": "44fe6fe8-9146-50a8-87b9-2074ed586747",
+            "loadBalanceCompression": "DO_NOT_COMPRESS",
+            "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+            "name": "",
+            "selectedRelationships": [
+              ""
+            ],
+            "source": {
+              "groupId": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+              "id": "a8ee35d6-fc57-5117-9ae5-e6e3fcb10e79",
+              "name": "in",
+              "type": "INPUT_PORT"
+            }
+          },
+          {
+            "backPressureDataSizeThreshold": "1 GB",
+            "backPressureObjectThreshold": 10000,
+            "componentType": "CONNECTION",
+            "destination": {
+              "groupId": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+              "id": "a03c52ab-66a9-5c6d-ab87-712ba549c966",
+              "name": "failure",
+              "type": "OUTPUT_PORT"
+            },
+            "flowFileExpiration": "0 sec",
+            "groupIdentifier": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+            "identifier": "4b74060a-3373-50f6-8fff-c41d1c91b95c",
+            "loadBalanceCompression": "DO_NOT_COMPRESS",
+            "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+            "name": "",
+            "selectedRelationships": [
+              "failure"
+            ],
+            "source": {
+              "groupId": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+              "id": "a496dd76-951c-5ab4-a9bf-bf505627b5b8",
+              "name": "OUT_PutS3Object",
+              "type": "PROCESSOR"
+            }
+          }
+        ],
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+        "inputPorts": [
+          {
+            "allowRemoteAccess": false,
+            "componentType": "INPUT_PORT",
+            "concurrentlySchedulableTaskCount": 1,
+            "groupIdentifier": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+            "identifier": "a8ee35d6-fc57-5117-9ae5-e6e3fcb10e79",
+            "name": "in",
+            "portFunction": "STANDARD",
+            "scheduledState": "ENABLED",
+            "type": "INPUT_PORT"
+          }
+        ],
+        "name": "OUT_Results",
+        "outputPorts": [
+          {
+            "allowRemoteAccess": false,
+            "componentType": "OUTPUT_PORT",
+            "concurrentlySchedulableTaskCount": 1,
+            "groupIdentifier": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+            "identifier": "a03c52ab-66a9-5c6d-ab87-712ba549c966",
+            "name": "failure",
+            "portFunction": "STANDARD",
+            "scheduledState": "ENABLED",
+            "type": "OUTPUT_PORT"
+          }
+        ],
+        "processors": [
+          {
+            "autoTerminatedRelationships": [
+              "success"
+            ],
+            "backoffMechanism": "PENALIZE_FLOWFILE",
+            "bulletinLevel": "WARN",
+            "bundle": {
+              "artifact": "nifi-aws-nar",
+              "group": "org.apache.nifi",
+              "version": "2.0.0"
+            },
+            "componentType": "PROCESSOR",
+            "concurrentlySchedulableTaskCount": 1,
+            "executionNode": "ALL",
+            "groupIdentifier": "23b4f592-0497-5b59-a1db-4fb4590cddde",
+            "identifier": "a496dd76-951c-5ab4-a9bf-bf505627b5b8",
+            "maxBackoffPeriod": "10 mins",
+            "name": "OUT_PutS3Object",
+            "penaltyDuration": "30 sec",
+            "properties": {
+              "AWS Credentials Provider service": "97fbc41a-6190-5d8e-8bfc-abcad12e00cf",
+              "Bucket": "#{s3.output.bucket}",
+              "Object Key": "enriched/${filename}",
+              "Region": "#{aws.region}"
+            },
+            "retryCount": 10,
+            "runDurationMillis": 0,
+            "scheduledState": "ENABLED",
+            "schedulingPeriod": "0 sec",
+            "schedulingStrategy": "TIMER_DRIVEN",
+            "type": "org.apache.nifi.processors.aws.s3.PutS3Object",
+            "yieldDuration": "1 sec"
+          }
+        ]
+      },
+      {
+        "componentType": "PROCESS_GROUP",
+        "connections": [
+          {
+            "backPressureDataSizeThreshold": "1 GB",
+            "backPressureObjectThreshold": 10000,
+            "componentType": "CONNECTION",
+            "destination": {
+              "groupId": "ac6d33e9-220e-591f-9ab4-120de57033cd",
+              "id": "06ab6a54-a8f4-5ce0-97cc-4bfa88c23e09",
+              "name": "ERR_LogAttribute",
+              "type": "PROCESSOR"
+            },
+            "flowFileExpiration": "0 sec",
+            "groupIdentifier": "ac6d33e9-220e-591f-9ab4-120de57033cd",
+            "identifier": "dcd379e3-4db6-59a0-a437-19c1434bcb43",
+            "loadBalanceCompression": "DO_NOT_COMPRESS",
+            "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+            "name": "",
+            "selectedRelationships": [
+              ""
+            ],
+            "source": {
+              "groupId": "ac6d33e9-220e-591f-9ab4-120de57033cd",
+              "id": "3ca9c8c6-0bc0-5c06-9fdf-e1989a6b6b84",
+              "name": "in",
+              "type": "INPUT_PORT"
+            }
+          }
+        ],
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "ac6d33e9-220e-591f-9ab4-120de57033cd",
+        "inputPorts": [
+          {
+            "allowRemoteAccess": false,
+            "componentType": "INPUT_PORT",
+            "concurrentlySchedulableTaskCount": 1,
+            "groupIdentifier": "ac6d33e9-220e-591f-9ab4-120de57033cd",
+            "identifier": "3ca9c8c6-0bc0-5c06-9fdf-e1989a6b6b84",
+            "name": "in",
+            "portFunction": "STANDARD",
+            "scheduledState": "ENABLED",
+            "type": "INPUT_PORT"
+          }
+        ],
+        "name": "ERR_Unwritable",
+        "processors": [
+          {
+            "autoTerminatedRelationships": [
+              "success"
+            ],
+            "backoffMechanism": "PENALIZE_FLOWFILE",
+            "bulletinLevel": "WARN",
+            "bundle": {
+              "artifact": "nifi-standard-nar",
+              "group": "org.apache.nifi",
+              "version": "2.0.0"
+            },
+            "componentType": "PROCESSOR",
+            "concurrentlySchedulableTaskCount": 1,
+            "executionNode": "ALL",
+            "groupIdentifier": "ac6d33e9-220e-591f-9ab4-120de57033cd",
+            "identifier": "06ab6a54-a8f4-5ce0-97cc-4bfa88c23e09",
+            "maxBackoffPeriod": "10 mins",
+            "name": "ERR_LogAttribute",
+            "penaltyDuration": "30 sec",
+            "properties": {
+              "Log Level": "error",
+              "Log Payload": "false"
+            },
+            "retryCount": 10,
+            "runDurationMillis": 0,
+            "scheduledState": "ENABLED",
+            "schedulingPeriod": "0 sec",
+            "schedulingStrategy": "TIMER_DRIVEN",
+            "type": "org.apache.nifi.processors.standard.LogAttribute",
+            "yieldDuration": "1 sec"
+          }
+        ]
+      },
+      {
+        "componentType": "PROCESS_GROUP",
+        "connections": [
+          {
+            "backPressureDataSizeThreshold": "1 GB",
+            "backPressureObjectThreshold": 10000,
+            "componentType": "CONNECTION",
+            "destination": {
+              "groupId": "fff353de-7030-5052-bc9f-de94f8be1422",
+              "id": "030af803-5b5f-52fe-a9c3-22fdd90fa5ce",
+              "name": "OUT_PutS3Object",
+              "type": "PROCESSOR"
+            },
+            "flowFileExpiration": "0 sec",
+            "groupIdentifier": "fff353de-7030-5052-bc9f-de94f8be1422",
+            "identifier": "983a572d-53c3-59fe-9247-400622df334d",
+            "loadBalanceCompression": "DO_NOT_COMPRESS",
+            "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+            "name": "",
+            "selectedRelationships": [
+              ""
+            ],
+            "source": {
+              "groupId": "fff353de-7030-5052-bc9f-de94f8be1422",
+              "id": "eade8f94-dddc-5236-b0fa-d2b17a849191",
+              "name": "in",
+              "type": "INPUT_PORT"
+            }
+          },
+          {
+            "backPressureDataSizeThreshold": "1 GB",
+            "backPressureObjectThreshold": 10000,
+            "componentType": "CONNECTION",
+            "destination": {
+              "groupId": "fff353de-7030-5052-bc9f-de94f8be1422",
+              "id": "e766c121-c456-5634-bb6a-3ecaca3e70fa",
+              "name": "failure",
+              "type": "OUTPUT_PORT"
+            },
+            "flowFileExpiration": "0 sec",
+            "groupIdentifier": "fff353de-7030-5052-bc9f-de94f8be1422",
+            "identifier": "f90d1c1e-81b0-5c1d-bae8-2c4c28adfd5c",
+            "loadBalanceCompression": "DO_NOT_COMPRESS",
+            "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+            "name": "",
+            "selectedRelationships": [
+              "failure"
+            ],
+            "source": {
+              "groupId": "fff353de-7030-5052-bc9f-de94f8be1422",
+              "id": "030af803-5b5f-52fe-a9c3-22fdd90fa5ce",
+              "name": "OUT_PutS3Object",
+              "type": "PROCESSOR"
+            }
+          }
+        ],
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "fff353de-7030-5052-bc9f-de94f8be1422",
+        "inputPorts": [
+          {
+            "allowRemoteAccess": false,
+            "componentType": "INPUT_PORT",
+            "concurrentlySchedulableTaskCount": 1,
+            "groupIdentifier": "fff353de-7030-5052-bc9f-de94f8be1422",
+            "identifier": "eade8f94-dddc-5236-b0fa-d2b17a849191",
+            "name": "in",
+            "portFunction": "STANDARD",
+            "scheduledState": "ENABLED",
+            "type": "INPUT_PORT"
+          }
+        ],
+        "name": "ERR_DeadLetter",
+        "outputPorts": [
+          {
+            "allowRemoteAccess": false,
+            "componentType": "OUTPUT_PORT",
+            "concurrentlySchedulableTaskCount": 1,
+            "groupIdentifier": "fff353de-7030-5052-bc9f-de94f8be1422",
+            "identifier": "e766c121-c456-5634-bb6a-3ecaca3e70fa",
+            "name": "failure",
+            "portFunction": "STANDARD",
+            "scheduledState": "ENABLED",
+            "type": "OUTPUT_PORT"
+          }
+        ],
+        "processors": [
+          {
+            "autoTerminatedRelationships": [
+              "success"
+            ],
+            "backoffMechanism": "PENALIZE_FLOWFILE",
+            "bulletinLevel": "WARN",
+            "bundle": {
+              "artifact": "nifi-aws-nar",
+              "group": "org.apache.nifi",
+              "version": "2.0.0"
+            },
+            "componentType": "PROCESSOR",
+            "concurrentlySchedulableTaskCount": 1,
+            "executionNode": "ALL",
+            "groupIdentifier": "fff353de-7030-5052-bc9f-de94f8be1422",
+            "identifier": "030af803-5b5f-52fe-a9c3-22fdd90fa5ce",
+            "maxBackoffPeriod": "10 mins",
+            "name": "OUT_PutS3Object",
+            "penaltyDuration": "30 sec",
+            "properties": {
+              "AWS Credentials Provider service": "97fbc41a-6190-5d8e-8bfc-abcad12e00cf",
+              "Bucket": "#{s3.deadletter.bucket}",
+              "Object Key": "failed/${uuid}",
+              "Region": "#{aws.region}"
+            },
+            "retryCount": 10,
+            "runDurationMillis": 0,
+            "scheduledState": "ENABLED",
+            "schedulingPeriod": "0 sec",
+            "schedulingStrategy": "TIMER_DRIVEN",
+            "type": "org.apache.nifi.processors.aws.s3.PutS3Object",
+            "yieldDuration": "1 sec"
+          }
+        ]
+      }
+    ],
+    "processors": [
+      {
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "nifi-standard-nar",
+          "group": "org.apache.nifi",
+          "version": "2.0.0"
+        },
+        "componentType": "PROCESSOR",
+        "concurrentlySchedulableTaskCount": 1,
+        "executionNode": "ALL",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "3367103c-b80e-5b53-8cd8-6e4c053fd3d9",
+        "maxBackoffPeriod": "10 mins",
+        "name": "PRC_ExtractContent",
+        "penaltyDuration": "30 sec",
+        "properties": {
+          "Destination": "flowfile-content",
+          "Return Type": "json",
+          "content": "$.payload"
+        },
+        "retryCount": 10,
+        "runDurationMillis": 0,
+        "scheduledState": "ENABLED",
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "type": "org.apache.nifi.processors.standard.EvaluateJsonPath",
+        "yieldDuration": "1 sec"
+      },
+      {
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "nifi-standard-nar",
+          "group": "org.apache.nifi",
+          "version": "2.0.0"
+        },
+        "componentType": "PROCESSOR",
+        "concurrentlySchedulableTaskCount": 1,
+        "executionNode": "ALL",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "4951b6cf-21f4-5d5e-ada1-88123cd7e9c6",
+        "maxBackoffPeriod": "10 mins",
+        "name": "PRC_ParseS3Event",
+        "penaltyDuration": "30 sec",
+        "properties": {
+          "Destination": "flowfile-attribute",
+          "Return Type": "json",
+          "s3.bucket": "$.Records[0].s3.bucket.name",
+          "s3.key": "$.Records[0].s3.object.key"
+        },
+        "retryCount": 10,
+        "runDurationMillis": 0,
+        "scheduledState": "ENABLED",
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "type": "org.apache.nifi.processors.standard.EvaluateJsonPath",
+        "yieldDuration": "1 sec"
+      },
+      {
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "nifi-aws-nar",
+          "group": "org.apache.nifi",
+          "version": "2.0.0"
+        },
+        "componentType": "PROCESSOR",
+        "concurrentlySchedulableTaskCount": 1,
+        "executionNode": "ALL",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "81e830a3-cc8d-5c81-9daf-21963dd6b9fc",
+        "maxBackoffPeriod": "10 mins",
+        "name": "PRC_InvokeLambda",
+        "penaltyDuration": "30 sec",
+        "properties": {
+          "AWS Credentials Provider service": "97fbc41a-6190-5d8e-8bfc-abcad12e00cf",
+          "Amazon Lambda Name": "#{lambda.function.name}",
+          "Amazon Lambda Qualifier": "$LATEST",
+          "Region": "#{aws.region}"
+        },
+        "retryCount": 10,
+        "runDurationMillis": 0,
+        "scheduledState": "ENABLED",
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "type": "org.apache.nifi.processors.aws.lambda.PutLambda",
+        "yieldDuration": "1 sec"
+      },
+      {
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "nifi-aws-nar",
+          "group": "org.apache.nifi",
+          "version": "2.0.0"
+        },
+        "componentType": "PROCESSOR",
+        "concurrentlySchedulableTaskCount": 1,
+        "executionNode": "ALL",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "a326533c-8dfa-592e-970b-991a896d23bd",
+        "maxBackoffPeriod": "10 mins",
+        "name": "IN_GetSQS",
+        "penaltyDuration": "30 sec",
+        "properties": {
+          "AWS Credentials Provider service": "97fbc41a-6190-5d8e-8bfc-abcad12e00cf",
+          "Auto Delete Messages": "true",
+          "Batch Size": "10",
+          "Queue URL": "#{sqs.queue.url}",
+          "Receive Message Wait Time": "20 secs",
+          "Region": "#{aws.region}"
+        },
+        "retryCount": 10,
+        "runDurationMillis": 0,
+        "scheduledState": "ENABLED",
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "type": "org.apache.nifi.processors.aws.sqs.GetSQS",
+        "yieldDuration": "1 sec"
+      },
+      {
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "nifi-aws-nar",
+          "group": "org.apache.nifi",
+          "version": "2.0.0"
+        },
+        "componentType": "PROCESSOR",
+        "concurrentlySchedulableTaskCount": 1,
+        "executionNode": "ALL",
+        "groupIdentifier": "2eee97ec-fd78-5947-bacc-ebaa75a2f76d",
+        "identifier": "db61932e-4eee-5e7b-9770-1d931c02a006",
+        "maxBackoffPeriod": "10 mins",
+        "name": "PRC_FetchS3Object",
+        "penaltyDuration": "30 sec",
+        "properties": {
+          "AWS Credentials Provider service": "97fbc41a-6190-5d8e-8bfc-abcad12e00cf",
+          "Bucket": "${s3.bucket}",
+          "Object Key": "${s3.key:urlDecode()}",
+          "Region": "#{aws.region}"
+        },
+        "retryCount": 10,
+        "runDurationMillis": 0,
+        "scheduledState": "ENABLED",
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "type": "org.apache.nifi.processors.aws.s3.FetchS3Object",
+        "yieldDuration": "1 sec"
+      }
+    ]
+  },
+  "flowEncodingVersion": "1.0",
+  "parameterContexts": {
+    "telemetry": {
+      "componentType": "PARAMETER_CONTEXT",
+      "identifier": "14ee0701-c68f-5ea2-ac69-ed5311fd0543",
+      "name": "telemetry",
+      "parameters": [
+        {
+          "name": "aws.access.key.id",
+          "provided": false,
+          "sensitive": true
+        },
+        {
+          "name": "aws.region",
+          "provided": false,
+          "sensitive": false,
+          "value": "eu-west-2"
+        },
+        {
+          "name": "aws.secret.access.key",
+          "provided": false,
+          "sensitive": true
+        },
+        {
+          "name": "lambda.function.name",
+          "provided": false,
+          "sensitive": false
+        },
+        {
+          "name": "s3.deadletter.bucket",
+          "provided": false,
+          "sensitive": false
+        },
+        {
+          "name": "s3.output.bucket",
+          "provided": false,
+          "sensitive": false
+        },
+        {
+          "name": "sqs.queue.url",
+          "provided": false,
+          "sensitive": false
+        }
+      ]
+    }
+  }
+}
