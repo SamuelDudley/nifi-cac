@@ -191,15 +191,19 @@ See [flows/telemetry/README.md](flows/telemetry/README.md) for the diagram.
 
 The schema follows the NiFi 2.0 flow definition format and the processor
 property names in the NiFi 2.0 documentation. It has not been imported into a
-running NiFi instance. Before first deploy, export one flow from your instance
-and run:
+running NiFi instance.
 
-```sh
-python -c "from nificac import RegisteredFlowSnapshot as S; \
-  s = S.model_validate_json(open('exported.json').read()); \
-  print(sorted((s.flow_contents.model_extra or {}).keys()))"
-```
-
-That prints every field NiFi sent that `models.py` does not declare yet.
-`extra="allow"` means an undeclared field still round-trips; declaring it only
-adds type checking.
+> **Note**
+> Before the first deploy, export one flow from your instance with
+> **Download flow definition**, save it as `exported.json`, and run:
+>
+> ```sh
+> .venv/bin/python -c "
+> from nificac import RegisteredFlowSnapshot as S
+> s = S.model_validate_json(open('exported.json').read())
+> print(sorted((s.flow_contents.model_extra or {}).keys()))"
+> ```
+>
+> That prints every field NiFi sent that `models.py` does not declare.
+> `extra="allow"` means those fields already round-trip; declaring them in
+> `models.py` only adds type checking. Repeat after a NiFi upgrade.
