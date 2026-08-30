@@ -4,10 +4,10 @@ from nificac import per_group, to_mermaid
 from nificac.mermaid import to_mermaid_shallow
 
 
-def test_diagram_is_deterministic(snapshot):
-    import flow as telemetry
+def test_diagram_is_deterministic(snapshot, build_telemetry):
 
-    assert to_mermaid(snapshot.flow_contents) == to_mermaid(telemetry.build().flow_contents)
+
+    assert to_mermaid(snapshot.flow_contents) == to_mermaid(build_telemetry().flow_contents)
 
 
 def test_every_block_becomes_a_subgraph(snapshot):

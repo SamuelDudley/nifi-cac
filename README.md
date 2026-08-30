@@ -9,7 +9,7 @@ deterministic. Canvas geometry lives outside the reviewed file.
 uv venv && uv pip install -e ".[dev]"
 python -m nificac build      # generate artifacts for every flow
 python -m nificac check      # fail if artifacts are stale or policy fails
-python -m pytest             # 38 tests
+python -m pytest             # 39 tests
 ```
 
 ## Repository layout
@@ -155,6 +155,10 @@ python -m nificac deploy flows/telemetry > deployable.json
 | `check_routing` | Every processor has an outbound route or auto-terminated relationships, and an inbound connection unless it is `IN_`. |
 
 Add a rule by appending a function to `policy.CHECKS`.
+
+`flow.py` is compiled by `cli.load`, not imported. CPython validates a cached
+`.pyc` on source mtime and size at one second resolution, so a branch switch can
+leave a stale cache that would generate artifacts from source no longer on disk.
 
 ## Diagrams
 

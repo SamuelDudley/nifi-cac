@@ -1,14 +1,19 @@
-import sys
 from pathlib import Path
-
-REPO = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO / "flows" / "telemetry"))
 
 import pytest
 
-import flow as telemetry
+from nificac.cli import load
+
+REPO = Path(__file__).resolve().parents[1]
+TELEMETRY = REPO / "flows" / "telemetry"
 
 
 @pytest.fixture
-def snapshot():
-    return telemetry.build()
+def build_telemetry():
+    """Build the example flow from source, never from cached bytecode."""
+    return lambda: load(TELEMETRY)
+
+
+@pytest.fixture
+def snapshot(build_telemetry):
+    return build_telemetry()

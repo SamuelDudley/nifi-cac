@@ -10,9 +10,9 @@ A flow directory holds ``flow.py`` exposing ``build() -> RegisteredFlowSnapshot`
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import json
 import sys
+import types
 from pathlib import Path
 from typing import Iterable
 
@@ -33,12 +33,23 @@ def discover(paths: Iterable[str]) -> list[Path]:
 
 
 def load(flow_dir: Path) -> RegisteredFlowSnapshot:
+    """Execute ``flow.py`` and return its snapshot.
+
+    The source is compiled here rather than imported. CPython validates a
+    cached ``.pyc`` on source mtime and size at one second resolution, so a
+    branch switch or ``git checkout`` can leave a stale cache that generates
+    artifacts from source that is no longer on disk.
+    """
     source = flow_dir / "flow.py"
-    spec = importlib.util.spec_from_file_location(f"flow_{flow_dir.name}", source)
-    if spec is None or spec.loader is None:
-        raise SystemExit(f"cannot import {source}")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    if not source.exists():
+        raise SystemExit(f"{source} does not exist")
+    module = types.ModuleType(f"flow_{flow_dir.name}")
+    module.__file__ = str(source)
+    sys.path.insert(0, str(flow_dir))
+    try:
+        exec(compile(source.read_text(), str(source), "exec"), module.__dict__)
+    finally:
+        sys.path.remove(str(flow_dir))
     return module.build()
 
 

@@ -29,11 +29,11 @@ def _keys(node, found=None):
     return found
 
 
-def test_build_is_deterministic(snapshot):
-    import flow as telemetry
+def test_build_is_deterministic(snapshot, build_telemetry):
 
-    assert canonical_json(snapshot) == canonical_json(telemetry.build())
-    assert fingerprint(snapshot) == fingerprint(telemetry.build())
+
+    assert canonical_json(snapshot) == canonical_json(build_telemetry())
+    assert fingerprint(snapshot) == fingerprint(build_telemetry())
 
 
 def test_no_volatile_keys_in_canonical_output(snapshot):

@@ -10,10 +10,10 @@ from nificac.models import RegisteredFlowSnapshot
 FLOW_DIR = Path(__file__).resolve().parents[1] / "flows" / "telemetry"
 
 
-def test_layout_is_deterministic(snapshot):
-    import flow as telemetry
+def test_layout_is_deterministic(snapshot, build_telemetry):
 
-    assert build_layout(snapshot.flow_contents) == build_layout(telemetry.build().flow_contents)
+
+    assert build_layout(snapshot.flow_contents) == build_layout(build_telemetry().flow_contents)
 
 
 def test_layout_covers_every_component(snapshot):
